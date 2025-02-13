@@ -40,7 +40,7 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println(ticketRepository.fetchAllTicketsBetweenRangeOfDateTimes(LocalDateTime.now().minusDays(1000), LocalDateTime.now()));
         System.out.println(ticketRepository.retrieveAllBySearchCriteria("it"));
         System.out.println(genreRepository.fetchAll());
-        System.out.println(userRepository.fetchAllUsers());
+        System.out.println(userRepository.findAllUsers());
 
     }
 }

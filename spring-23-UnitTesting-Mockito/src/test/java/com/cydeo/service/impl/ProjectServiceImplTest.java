@@ -32,7 +32,10 @@ class ProjectServiceImplTest {
     void getByProjectCode_Test() {
 
         // Given        --      Preparation of the test
+        // when projectRepository.findByProjectCode() method runs, return me new Project entity
         when(projectRepository.findByProjectCode(anyString())).thenReturn(new Project());   // Stubbing
+            // stubbing is to define behaviour and result of the method
+        //when projectMapper run convertToDto(any means - any method inside of Project class runs) method, return me new Project entity
         when(projectMapper.convertToDto(any(Project.class))).thenReturn(new ProjectDTO());
 
         // When         --      Execution of the real method
@@ -40,6 +43,7 @@ class ProjectServiceImplTest {
 
         // Then         --      Verification and assertion
         InOrder inOrder = inOrder(projectRepository, projectMapper);  // I want to check the order of these 2 Mocks
+
 
         inOrder.verify(projectRepository).findByProjectCode(anyString());   // We are providing in which order these 2 Mocks should be
         inOrder.verify(projectMapper).convertToDto(any(Project.class));

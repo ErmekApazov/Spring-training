@@ -35,7 +35,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     //Write a JPQL query that returns all tickets between a range of dates
     @Query("SELECT t FROM Ticket t WHERE t.dateTime BETWEEN ?1 AND ?2")
-    List<Ticket> fetchAllTicketsBetweenRangeOfDateTimes(@Param("dateTime1") LocalDateTime dateTime1, @Param("dateTime2") LocalDateTime dateTime2);
+    List<Ticket> fetchAllTicketsBetweenRangeOfDateTimes(
+            @Param("dateTime1") LocalDateTime dateTime1, @Param("dateTime2") LocalDateTime dateTime2);
 
     // ------------------- Native QUERIES ------------------- //
 

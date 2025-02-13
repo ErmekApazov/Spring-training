@@ -33,7 +33,7 @@ public class Consume_RestTemplate {
 
         String URL = URI + "/{id}";
 
-        return restTemplate.getForObject(URL, Object.class,id);
+        return restTemplate.getForObject(URL, Object.class, id);
 
     }
 

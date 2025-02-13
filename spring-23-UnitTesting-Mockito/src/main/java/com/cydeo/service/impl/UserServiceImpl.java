@@ -39,17 +39,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO findByUserName(String username) {
-
-        // switch case  -> 10 cases         -  case3
-        // case1 - break
-        // case2 - break
-        // case3 - break
-        // case4 - no break;
-        // case5 ...
-
-
-        // We didn't get any exception in this line
-
         User user = userRepository.findByUserNameAndIsDeleted(username, false);
         return userMapper.convertToDto(user);
     }

@@ -42,6 +42,8 @@ public class DataGenerator implements CommandLineRunner {
 
         payment2.setPaymentDetail(paymentDetail2);
 
+        // ----------------------
+
         Merchant merchant1 = new Merchant("AmazonSubMerchant","M123",new BigDecimal("0.25"),new BigDecimal("3.25"),5);
 
         Customer customer1 = new Customer("msmith","Mike","Smith","msmith@cydeo.com","VA");
@@ -75,15 +77,7 @@ public class DataGenerator implements CommandLineRunner {
         cartRepository.save(cart2);
 
 
-
-
-
-
-
         merchantRepository.save(merchant1);
-
-
-
 
         paymentRepository.save(payment1);
         paymentRepository.save(payment2);

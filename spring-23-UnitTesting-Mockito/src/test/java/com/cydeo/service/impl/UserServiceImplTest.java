@@ -22,7 +22,7 @@ class UserServiceImplTest {
     UserMapper userMapper;
 
     @InjectMocks
-    UserServiceImpl userService;
+    UserServiceImpl userServiceImpl;
 
 //    UserServiceImpl userService = new UserServiceImpl(userRepository, userMapper, projectService, taskService);
 
@@ -30,7 +30,7 @@ class UserServiceImplTest {
     void findByUserName_Test() {
 
         // I'm calling the real method inside the main, which is the method I want to test.
-        userService.findByUserName("harold@manager.com");
+        userServiceImpl.findByUserName("harold@manager.com");
 
         // I'm checking if this method ran or not.
         verify(userRepository).findByUserNameAndIsDeleted("harold@manager.com", false);
