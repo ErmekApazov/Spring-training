@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*1.task write a schoolcontroller and api endpoint for "teachers",
+return all teachers as json you will get an error try to solve it.*/
+
 @RestController
 public class SchoolController {
 
@@ -32,6 +35,20 @@ public class SchoolController {
     public List<TeacherDTO> readAllTeacher() {
         List<TeacherDTO> teachers = teacherService.findAll();
         return teachers;
+    }
+
+    @GetMapping("/teacher/{id}")
+    public ResponseEntity<ResponseWrapper> readOneTeacher(@PathVariable("id") Long id) throws Exception {
+        TeacherDTO teacherDTO = teacherService.findById(id);
+
+       /* if (teacherDTO != null) {
+            ResponseWrapper response = new ResponseWrapper("Teacher found", teacherDTO);
+            return ResponseEntity.ok(response);
+        } else {
+            ResponseWrapper response = new ResponseWrapper("Teacher not found", null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }*/
+        return ResponseEntity.ok(new ResponseWrapper("A teacher is successfully retrieved", teacherDTO));
     }
 
     @GetMapping("/students")
