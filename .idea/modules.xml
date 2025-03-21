@@ -29,7 +29,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring-22-UnitTesting-JUnit5/spring-22-UnitTesting-JUnit5.iml" filepath="$PROJECT_DIR$/spring-22-UnitTesting-JUnit5/spring-22-UnitTesting-JUnit5.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-23-UnitTesting-Mockito/spring-23-UnitTesting-Mockito.iml" filepath="$PROJECT_DIR$/spring-23-UnitTesting-Mockito/spring-23-UnitTesting-Mockito.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-24-UnitTesting-MockMVC/spring-24-UnitTesting-MockMVC.iml" filepath="$PROJECT_DIR$/spring-24-UnitTesting-MockMVC/spring-24-UnitTesting-MockMVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/spring-training1.iml" filepath="$PROJECT_DIR$/.idea/spring-training1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-training.iml" filepath="$PROJECT_DIR$/.idea/spring-training.iml" />
     </modules>
   </component>
 </project>

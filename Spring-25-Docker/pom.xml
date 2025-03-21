@@ -12,7 +12,7 @@
     <artifactId>Spring-24-Docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-24-Docker</name>
-    <description>Spring-24-Docker</description>
+    <description>Spring-25-Docker</description>
     <properties>
         <java.version>11</java.version>
     </properties>
