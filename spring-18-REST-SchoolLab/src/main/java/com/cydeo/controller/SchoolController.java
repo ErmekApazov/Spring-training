@@ -56,6 +56,14 @@ public class SchoolController {
         return ResponseEntity.ok(new ResponseWrapper("Students are successfully retrieved", studentService.findAll()));
     }
 
+    /*create a parent endpoint where status code is 202
+    * additional header has "parent", "returned"
+    * and following json body structure
+    * "Parents are successfully retrieved." message
+    * code: 202
+    * success: true
+    * and student data*/
+
     @GetMapping("/parents")
     public ResponseEntity<ResponseWrapper> readAllParents() {
         ResponseWrapper responseWrapper =
@@ -64,10 +72,16 @@ public class SchoolController {
         return ResponseEntity.status(HttpStatus.OK).body(responseWrapper);
     }
 
+    /*create an endpoint for individual address information
+    * /address/1
+    * return status code 200
+    * "address .. is successfully retrieved" message
+    * and address information*/
+
     @GetMapping("/address/{id}")
     public ResponseEntity<ResponseWrapper> getAddress(@PathVariable("id") Long id) throws Exception {
         AddressDTO addressDTO = addressService.findById(id);
-        return ResponseEntity.ok(new ResponseWrapper("Address is successfully retrieved", addressDTO));
+        return ResponseEntity.ok(new ResponseWrapper("Address "+id+" is successfully retrieved", addressDTO));
     }
 
     @PutMapping("/address/{id}")

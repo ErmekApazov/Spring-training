@@ -30,4 +30,14 @@ public class ResponseWrapper {
         this.code = HttpStatus.OK.value();
     }
 
+    public ResponseWrapper(String message, int code, boolean success, Object data) {
+        this.message = message;
+        this.code = code;
+        this.success = success;
+        this.data = data;
+    }
+
+    
+
+
 }
