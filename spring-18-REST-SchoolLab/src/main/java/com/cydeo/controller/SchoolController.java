@@ -7,6 +7,8 @@ import com.cydeo.service.AddressService;
 import com.cydeo.service.ParentService;
 import com.cydeo.service.StudentService;
 import com.cydeo.service.TeacherService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,8 @@ public class SchoolController {
     private final StudentService studentService;
     private final ParentService parentService;
     private final AddressService addressService;
+
+    private static final Logger logger = LoggerFactory.getLogger(SchoolController.class);
 
     public SchoolController(TeacherService teacherService, StudentService studentService, ParentService parentService, AddressService addressService) {
         this.teacherService = teacherService;
@@ -64,13 +68,42 @@ public class SchoolController {
     * success: true
     * and student data*/
 
-    @GetMapping("/parents")
+/*    @GetMapping("/parents")
     public ResponseEntity<ResponseWrapper> readAllParents() {
         ResponseWrapper responseWrapper =
                 new ResponseWrapper(true, "Parents are retrieved successfully",
                         HttpStatus.OK.value(), parentService.findAll());
-        return ResponseEntity.status(HttpStatus.OK).body(responseWrapper);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(responseWrapper);
+    }*/
+
+    @GetMapping("/parents")
+    public ResponseEntity<ResponseWrapper> readAllParents() {
+        ResponseWrapper responseWrapper =
+                new ResponseWrapper(true, "Parents are retrieved successfully",
+                        HttpStatus.ACCEPTED.value(), parentService.findAll());
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .header("Parent", "Returned")
+                .body(responseWrapper);
     }
+
+    // ---------------------------- + logger ---------------------------------------
+
+    @GetMapping("/parents2")
+    public ResponseEntity<ResponseWrapper> readAllParents2() {
+        logger.info("Fetching all parents");
+        ResponseWrapper responseWrapper =
+                new ResponseWrapper(true, "Parents are retrieved successfully",
+                        HttpStatus.ACCEPTED.value(), parentService.findAll());
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .header("Parent", "Returned")
+                .body(responseWrapper);
+    }
+
+
 
     /*create an endpoint for individual address information
     * /address/1
@@ -83,6 +116,9 @@ public class SchoolController {
         AddressDTO addressDTO = addressService.findById(id);
         return ResponseEntity.ok(new ResponseWrapper("Address "+id+" is successfully retrieved", addressDTO));
     }
+
+        /*create and endpoint to update address information.
+        * return updated address directly.*/
 
     @PutMapping("/address/{id}")
     public AddressDTO updateAddress(@PathVariable("id") Long id, @RequestBody AddressDTO addressDTO) throws Exception {

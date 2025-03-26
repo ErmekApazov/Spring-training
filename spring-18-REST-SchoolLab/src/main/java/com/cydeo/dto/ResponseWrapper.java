@@ -10,12 +10,12 @@ import org.springframework.http.HttpStatus;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResponseWrapper {
+public class ResponseWrapper<T> {
 
     private boolean success;
     private String message;
     private Integer code;
-    private Object data;
+    private Object data; // will return whatever object you want to return
 
     public ResponseWrapper(String message, Object data) {
         this.success = true;
