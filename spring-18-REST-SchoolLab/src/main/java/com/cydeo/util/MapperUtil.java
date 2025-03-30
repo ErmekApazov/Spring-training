@@ -18,4 +18,9 @@ public class MapperUtil {
         return modelMapper.map(objectToBeConverted, (Type) convertedObject.getClass());
     }
 
+    public <T> T mapToClass(Object objectToBeConverted, Class<T> targetClass ){
+        return modelMapper.map(objectToBeConverted, targetClass);
+    }
+
+
 }

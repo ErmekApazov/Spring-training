@@ -54,16 +54,28 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressDTO update(AddressDTO addressDTO) throws Exception {
 
-        addressRepository.findById(addressDTO.getId())
-                .orElseThrow(() -> new Exception("No Address Found!"));
+        // Check if the address exists in the database using its ID.
+        // If not found, throw an exception to prevent updating a non-existent record.
+        addressRepository.findById(addressDTO.getId()).orElseThrow(() -> new Exception("No Address Found!"));
 
+        // Convert the received AddressDTO into an Address entity.
+        // This is necessary because JPA repositories work with entity objects, not DTOs.
         Address addressToSave = mapperUtil.convert(addressDTO, new Address());
 
+        // Save the updated Address entity to the database.
+        // This ensures persistence of changes in the database.
         addressRepository.save(addressToSave);
 
+        // Convert the saved Address entity back into an AddressDTO.
+        // This is needed because the service layer typically returns DTOs, not entities, to the controller.
         AddressDTO updatedAddress = mapperUtil.convert(addressToSave, new AddressDTO());
+
+        // Fetch the current temperature based on the updated address's city.
+        // This adds additional useful data (weather information) to the response.
         updatedAddress.setCurrentTemperature(getCurrentWeather(updatedAddress.getCity()).getCurrent().getTemperature());
 
+        // Return the fully updated AddressDTO with all relevant details.
+        // This allows the API response to contain both address details and real-time weather data.
         return updatedAddress;
 
     }

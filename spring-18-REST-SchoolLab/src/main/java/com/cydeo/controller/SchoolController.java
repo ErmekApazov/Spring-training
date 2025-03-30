@@ -117,13 +117,16 @@ public class SchoolController {
         return ResponseEntity.ok(new ResponseWrapper("Address "+id+" is successfully retrieved", addressDTO));
     }
 
-        /*create and endpoint to update address information.
+        /*create an endpoint to update address information.
         * return updated address directly.*/
 
     @PutMapping("/address/{id}")
     public AddressDTO updateAddress(@PathVariable("id") Long id, @RequestBody AddressDTO addressDTO) throws Exception {
         addressDTO.setId(id);
-        return addressService.update(addressDTO);
+
+        AddressDTO updateAddress = addressService.update(addressDTO);
+
+        return updateAddress;
     }
 
 }
