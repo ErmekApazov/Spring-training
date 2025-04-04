@@ -93,7 +93,7 @@ public class SchoolController {
 
     @GetMapping("/parents2")
     public ResponseEntity<ResponseWrapper> readAllParents2() {
-        logger.info("Fetching all parents");
+        logger.info("Ermek has just fetched the list of all parents");
         ResponseWrapper responseWrapper =
                 new ResponseWrapper(true, "Parents are retrieved successfully",
                         HttpStatus.ACCEPTED.value(), parentService.findAll());

@@ -2,7 +2,7 @@ package com.cydeo.service.impl;
 
 import com.cydeo.client.WeatherApiClient;
 import com.cydeo.dto.AddressDTO;
-import com.cydeo.dto.WeatherDTO;
+import com.cydeo.dto.weather.WeatherDTO;
 import com.cydeo.entity.Address;
 import com.cydeo.util.MapperUtil;
 import com.cydeo.repository.AddressRepository;

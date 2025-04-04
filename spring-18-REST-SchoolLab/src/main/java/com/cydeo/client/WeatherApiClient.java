@@ -1,6 +1,6 @@
 package com.cydeo.client;
 
-import com.cydeo.dto.WeatherDTO;
+import com.cydeo.dto.weather.WeatherDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,3 +13,5 @@ public interface WeatherApiClient {
                                  @RequestParam(value = "query") String city);
 
 }
+
+// access key : 02a009b8e3922c395677a1e85406aca6
